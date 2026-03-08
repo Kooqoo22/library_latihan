@@ -46,6 +46,8 @@ func main() {
 		admin.Use(middleware.Auth(), middleware.AdminOnly())
 		{
 			admin.POST("", bookHandler.CreateBook)
+			admin.POST("/borrow", bookHandler.BorrowBook)
+			admin.POST("/return", bookHandler.ReturnBook)
 		}
 	}
 	log.Println("server running at :8080")
